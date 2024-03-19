@@ -11,7 +11,7 @@ wordForm.addEventListener("submit", (event) => {
   errorMsg.classList.add("hidden");
   const word = formInput.value;
   updateWord(word);
-  updatePoints(word);
+  isoCheck(word);
 });
 
 // Display submitted word
@@ -26,74 +26,19 @@ const updateWord = (word) => {
   }
 };
 
-// Calculate value and diplay points
-const updatePoints = (word) => {
-  let letterCount = 0;
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[a,e,i,o,u,l,n,r,s,t]/i)) {
-      letterCount++;
+const isoCheck = (word) => {
+  const wordLower = word.toLowerCase();
+  for (let i=0; i < word.length; i++) {
+    for (let j=i+1; j< word.length; j++){
+      if (wordLower[i]==wordLower[j]) {
+        var x = true;
+      }
     }
   }
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[d,g]/i)) {
-      letterCount+=2;
-    }
-  }
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[b,c,m,p]/i)) {
-      letterCount+=3;
-    }
-  }
-  
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[f,h,v,w,y]/i)) {
-      letterCount+=4;
-    }
-  }
-  
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[k]/i)) {
-      letterCount+=5;
-    }
-  }
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[j,x]/i)) {
-      letterCount+=8;
-    }
-  }
-
-  for (let i = 0; i < word.length; i++) {
-    if (word[i].match(/[q,z]/i)) {
-      letterCount+=10;
-    }
-  }
-
-  console.log(`The word '${word}' has ${letterCount} letters.`);
-
-  if (letterCount === 0) {
-    document.getElementById("wordPoints").textContent = ""
+  if (x) {
+    wordCheck.textContent = "is not an Isogram";
   } else {
-    document.getElementById("wordPoints").textContent = letterCount + " points"
+    wordCheck.textContent = "is an Isogram";
   }
-
-  dictionaryCheck(word);
-}
-
-const dictionaryCheck = (word) => {
-  fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-  .then(response => {
-    if (response.ok) {
-      wordCheck.textContent = "(exists)";
-      wordCheck.style.color = 'green';
-    } else if (word === "") {
-      wordCheck.textContent = "";
-    } else {
-      wordCheck.textContent = "(not a word)";
-      wordCheck.style.color = 'red';
-    }
-  })
-}
+  return wordLower
+};

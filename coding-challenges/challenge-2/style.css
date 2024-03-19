@@ -72,7 +72,7 @@ img {
   color: hsl(0, 0%, 30%);
 }
 
-.scrabbleCalc__wordPoints {
+.isoCalc__wordCheck {
   margin-block-start: 2rem;
   display: flex;
   justify-content: center;
@@ -81,25 +81,18 @@ img {
   border-radius: 1rem;
 }
 
-.scrabbleCalc__wordInput {
+.isoCalc__wordInput {
   display: flex;
   justify-content: space-around;
   padding: 2rem 0 1rem;
   font-size: 2rem;
 }
 
-.scrabbleCalc__wordPoints:empty {
+.isoCalc__wordCheck:empty {
   margin-block-start: 2rem;
   display: flex;
   justify-content: center;
   padding: 1rem;
   border: 0px solid hsl(0, 0%, 0%);
   border-radius: 1rem;
-}
-
-.scrabbleCalc__wordCheck {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem 0 1rem;
-  font-size: 1rem;
 }

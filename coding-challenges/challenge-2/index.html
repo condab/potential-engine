@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
     <script type="module" src="script.js" defer></script>
-    <title>Scrabble Calculator</title>
+    <title>Isogram Checker</title>
   </head>
   <body>
     <div class="container">
-      <h1 class="page-title">Scrabble Calculator</h1>
+      <h1 class="page-title">Isogram Checker</h1>
 
       <form class="wordform">
         <div class="wordform__elements">
@@ -29,40 +29,8 @@
         </div>
         <p class="error hidden"></p>
         <p class="instructions">
-          Given a word, calculate the Scrabble score for that word.
+          Determine whether a given word is an isogram.
           <br>
-          Letter points values:
-          <br>
-          <table>
-            <tr>
-              <td>A, E, I, O, U, L, N, R, S, T: </td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>D, G: </td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>B, C, M, P: </td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>F, H, V, W, Y: </td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>K: </td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>J, X: </td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>Q, Z: </td>
-              <td>10</td>
-            </tr>
-          </table>
         </p>
       </form>
 
@@ -70,10 +38,9 @@
         <article class="scrabbleCalc">
           <link href="loader.css" rel="stylesheet" />
           <span class="loader hidden"> </span>
-          <div class="scrabbleCalc">
-            <span class="scrabbleCalc__wordInput" id="wordInput"></span>
-            <span class="scrabbleCalc__wordCheck" id="wordCheck"></span>
-            <span class="scrabbleCalc__wordPoints" id="wordPoints"></span>
+          <div class="isoCalc">
+            <span class="isoCalc__wordInput" id="wordInput"></span>
+            <span class="isoCalc__wordCheck" id="wordCheck"></span>
           </div>
         </article>
       </section>
